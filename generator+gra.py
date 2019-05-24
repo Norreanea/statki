@@ -46,7 +46,7 @@ def generator():
                             gen_statek += 1
                             
                             #generowanie punktów
-                            kratka = str(randrange(10))+"_"+str(randrange(10))
+                            kratka = str(randrange(9)+1)+"_"+str(randrange(9)+1)
                             #losowa pozycja statku
                             pozycja = randrange(2)
                             if pozycja == 0:
@@ -92,7 +92,7 @@ for tura in range(10):
     zgadn_kolumna = int(input("Zgadnij kolumnę [1-10]: "))
     strzał=("%d_%d" %(zgadn_wiersz,zgadn_kolumna))
 
-    if (zgadn_wiersz < 0 or zgadn_wiersz > 10)  or (zgadn_kolumna < 0 or zgadn_kolumna > 10):
+    if (zgadn_wiersz < 1 or zgadn_wiersz > 10)  or (zgadn_kolumna < 1 or zgadn_kolumna > 10):
        print ("Wykroczyłeś poza planszę")
        print_board(plansza)
     elif(plansza[zgadn_wiersz-1][zgadn_kolumna-1] == "."):
