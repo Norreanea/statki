@@ -93,13 +93,13 @@ for tura in range(10):
     strzał=("%d_%d" %(zgadn_wiersz,zgadn_kolumna))
 
     if (zgadn_wiersz < 1 or zgadn_wiersz > 10)  or (zgadn_kolumna < 1 or zgadn_kolumna > 10):
-       print ("Wykroczyłeś poza planszę")
+       print ("\nWykroczyłeś poza planszę")
        print_board(plansza)
     elif(plansza[zgadn_wiersz-1][zgadn_kolumna-1] == "."):
-       print ("Już tu próbowałeś. Zmarnowany ruch.")
+       print ("\nJuż tu próbowałeś. Zmarnowany ruch.")
        print_board(plansza)
     elif(plansza[zgadn_wiersz-1][zgadn_kolumna-1] == "X"):
-       print ("Już tu strzeliłeś statek. Zmarnowany ruch.")
+       print ("\nJuż tu strzeliłeś statek. Zmarnowany ruch.")
        print_board(plansza)
 
     else:
