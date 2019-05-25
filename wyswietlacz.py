@@ -1,46 +1,46 @@
-#####________________plansza
-plansza = []
+#!/usr/bin/python3
 
-for x in range(1,11):
-    plansza.append(["o"] * 10)
+import sys
+import time
+plansza = []
+g=3
+k=5
+
+
+for line in sys.stdin:
+  punkty=line
+
+print(punkty)
+
+for x in range(0,11):
+    plansza.append(["o"] * 11)
 
 def print_board(plansza):
     for row in plansza:
+        str(row)
         print (" ".join(row))
 
-trafienia=0
-tura=0
+for x in range(0,11):
+  for y in range(0,11):
+    plansza[0][x]=x
+    plansza[x][0]=x
+    plansza[0][x]=str(plansza[0][x])
+    plansza[x][0]=str(plansza[x][0])
+
+for x in range(0,10):
+  l=[]
+  l.append(plansza[x][0])
+  l.append(" ")
+  plansza[x][0]=''.join(l)
+
+for i in range(0,20):
+  a=punkty[g][0][0]
+  b=punkty[k][0][0]
+  c=int(a)
+  d=int(b)
+  plansza[c][d]="X"
+  g+=9
+  k+=9
 
 print("Oto plansza:\n")
 print_board(plansza)
-     
-for tura in range(10):
-    zgadn_wiersz = int(input("\nZgadnij wiersz [1-10]:  "))
-    zgadn_kolumna = int(input("Zgadnij kolumnę [1-10]: "))
-    strzał=("%d_%d" %(zgadn_wiersz,zgadn_kolumna))
-
-    if (zgadn_wiersz < 1 or zgadn_wiersz > 10)  or (zgadn_kolumna < 1 or zgadn_kolumna > 10):
-       print ("\nWykroczyłeś poza planszę")
-       print_board(plansza)
-    elif(plansza[zgadn_wiersz-1][zgadn_kolumna-1] == "."):
-       print ("\nJuż tu próbowałeś. Zmarnowany ruch.")
-       print_board(plansza)
-    elif(plansza[zgadn_wiersz-1][zgadn_kolumna-1] == "X"):
-       print ("\nJuż tu strzeliłeś statek. Zmarnowany ruch.")
-       print_board(plansza)
-
-    else:
-        for i in range(0,len(punkty)):
-         
-            if strzał==punkty[i][0]:
-                   trafienia=trafienia+1
-                   plansza[zgadn_wiersz-1][zgadn_kolumna-1] = "X"
-                   break                  
-            else:
-                   plansza[zgadn_wiersz-1][zgadn_kolumna-1] = "."
-                    
-        if plansza[zgadn_wiersz-1][zgadn_kolumna-1] == "X"   :
-               print("\nTrafione!")
-        elif plansza[zgadn_wiersz-1][zgadn_kolumna-1] == ".":
-               print("\nPudło!")
-        print_board(plansza)
