@@ -27,10 +27,17 @@ class Statek():
                 self.sprawdzanie = 0
             if pozycja == 0:
                 #jeśli pozycja pozioma, na osi Y punkt wyjściowy ograniczamy do 11-liczba maszt 
-                self.mapa_wspolrzednych.append(str(wiersz)+"_"+str(kolumna+i))
+                self.wokol_mapy.append(str(wiersz)+"_"+str(kolumna+i))
             else:
-                self.mapa_wspolrzednych.append(str(wiersz+i)+"_"+str(kolumna))
-   
+                self.wokol_mapy.append(str(wiersz+i)+"_"+str(kolumna))
+        for j in self.wokol_mapy:
+            ti = int(j.split("_")[0])
+            tj = int(j.split("_")[1])
+            for ri in range(ti-1,ti+2):
+                for rj in range(tj-1,tj+2):
+                    if ri>=0 and ri<=9 and rj>=0 and rj<=9:
+                        if not(str(ri)+"_"+str(rj) in self.mapa_wspolrzednych) and not(str(ri)+"_"+str(rj) in self.wokol_mapy):
+                            self.mapa_wspolrzednych.append(str(ri)+"_"+str(rj))
 def generator():
         statki = 0
         while statki < 10:
