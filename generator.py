@@ -33,8 +33,8 @@ class Statek():
         for j in self.wokol_mapy:
             ti = int(j.split("_")[0])
             tj = int(j.split("_")[1])
-            for ri in range(ti-1,ti+2):
-                for rj in range(tj-1,tj+2):
+            for ri in range(ti,ti+1):
+                for rj in range(tj,tj+1):
                     if ri>=0 and ri<=9 and rj>=0 and rj<=9:
                         if not(str(ri)+"_"+str(rj) in self.mapa_wspolrzednych) and not(str(ri)+"_"+str(rj) in self.wokol_mapy):
                             self.mapa_wspolrzednych.append(str(ri)+"_"+str(rj))
